@@ -1,0 +1,32 @@
+[
+  {
+    "type": "steel",
+    "name": "Steel Maker",
+    "cargo": 70,
+    "count": 1
+  },
+  {
+    "type": "gravel",
+    "name": "Granite",
+    "cargo": 80,
+    "count": 1
+  },
+  {
+    "type": "steel",
+    "name": "Inox",
+    "cargo": 80,
+    "count": 1
+  },
+  {
+    "type": "glass",
+    "name": "Glazier Trailer",
+    "cargo": 10,
+    "count": 2
+  },
+  {
+    "type": "fuel",
+    "name": "Fuel Tanker",
+    "cargo": 20,
+    "count": 1
+  }
+]

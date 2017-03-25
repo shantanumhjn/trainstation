@@ -1,0 +1,23 @@
+[
+  {
+    "type": "passenger",
+    "name": "Grasshopper 1st",
+    "capacity": 200,
+    "profit": 200,
+    "count": 1
+  },
+  {
+    "type": "passenger",
+    "name": "Grasshopper 2nd",
+    "capacity": 100,
+    "profit": 50,
+    "count": 5
+  },
+  {
+    "type": "passenger",
+    "name": "Louisville",
+    "capacity": 105,
+    "profit": 30,
+    "count": 5
+  }
+]

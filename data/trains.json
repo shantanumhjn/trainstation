@@ -1,0 +1,74 @@
+[
+  {
+    "wagons": [
+      {
+        "count": 1,
+        "cargo": 70,
+        "capacity": null,
+        "name": "Steel Maker",
+        "profit": null,
+        "type": "steel"
+      },
+      {
+        "count": 1,
+        "cargo": 80,
+        "capacity": null,
+        "name": "Granite",
+        "profit": null,
+        "type": "gravel"
+      },
+      {
+        "count": 1,
+        "cargo": 80,
+        "capacity": null,
+        "name": "Inox",
+        "profit": null,
+        "type": "steel"
+      },
+      {
+        "count": 2,
+        "cargo": 10,
+        "capacity": null,
+        "name": "Glazier Trailer",
+        "profit": null,
+        "type": "glass"
+      },
+      {
+        "count": 1,
+        "cargo": 20,
+        "capacity": null,
+        "name": "Fuel Tanker",
+        "profit": null,
+        "type": "fuel"
+      }
+    ],
+    "locomotive": {
+      "type": "diesel",
+      "name": "PH37 Community",
+      "power": 6
+    }
+  },
+  {
+    "locomotive": {
+      "name": "Silver Ridge",
+      "type": "steam",
+      "power": 7
+    },
+    "wagons": [
+      {
+        "name": "Royal Mail",
+        "type": "mail",
+        "capacity": 1550,
+        "profit": 50,
+        "count": 1
+      },
+      {
+        "name": "Grasshopper 1st",
+        "type": "passenger",
+        "capacity": 200,
+        "profit": 200,
+        "count": 6
+      }
+    ]
+  }
+]
