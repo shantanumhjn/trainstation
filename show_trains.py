@@ -7,15 +7,16 @@ locomotive_metadata = {}
 
 def load_wagons():
     cur = db.conn.cursor()
-    sql = 'select id, type, name, capacity, profit, cargo from wagon_types'
+    sql = 'select id, super_type, type, name, capacity, profit, cargo from wagon_types'
     cur.execute(sql)
     for res in cur.fetchall():
         wagon_info = {}
-        wagon_info['type'] = res[1]
-        wagon_info['name'] = res[2]
-        wagon_info['capacity'] = res[3]
-        wagon_info['profit'] = res[4]
-        wagon_info['cargo'] = res[5]
+        wagon_info['super_type'] = res[1]
+        wagon_info['type'] = res[2]
+        wagon_info['name'] = res[3]
+        wagon_info['capacity'] = res[4]
+        wagon_info['profit'] = res[5]
+        wagon_info['cargo'] = res[6]
         wagon_metadata[res[0]] = wagon_info
 
 def load_locomotives():
@@ -86,6 +87,9 @@ def print_trains(trains):
         format_template = "{{:<{}}}"
         loco = train['locomotive']
         loco_name = str(loco['name']) + '(' + str(loco.get('id', 0)) + ')'
+        loco_bonus_on = str(loco.get('bonus_on', '') or '')
+        loco_bonus_on = loco_bonus_on.split(',')
+        loco_bonus = loco.get('bonus', 0) or 0
         loco_str_size = max(len(loco_name), len(str(loco['type'])), len(str(loco['power']))) + 5
         w_names = []
         w_types = []
@@ -93,17 +97,28 @@ def print_trains(trains):
         w_sizes = []
         w_count = 0
         for wagon in train['wagons']:
+            apply_loco_bonus = False
             w_count += wagon.get('count', 1)
-            w_names.append(str(wagon['name']) + ' x ' + str(wagon.get('count', 1)))
-            w_types.append(str(wagon['type']))
+            w_name = str(wagon['name']) + ' x ' + str(wagon.get('count', 1))
+            w_names.append(w_name)
+            w_type = str(wagon['type'])
+            w_types.append(w_type)
+            w_super_type = str(wagon.get('super_type', None))
+            if w_super_type in loco_bonus_on:
+                apply_loco_bonus = True
             cargo = wagon.get('cargo')
             capacity = wagon.get('capacity')
             profit = wagon.get('profit')
             if cargo is not None:
-                w_capacity.append(str(cargo))
+                capa_str = str(cargo)
+                if apply_loco_bonus:
+                    capa_str += ' (' + str(int(ceil(cargo*(1+(loco_bonus/100.0))))) + ')'
+                w_capacity.append(capa_str)
             else:
-                capacity = str(capacity) + ' (' + str(int(ceil(capacity*(1+(profit/100.0))))) + ')'
-                w_capacity.append(capacity)
+                effective = int(ceil(capacity*(1+(profit/100.0))))
+                if apply_loco_bonus:
+                    effective += int(ceil(effective*(loco_bonus/100.0)))
+                w_capacity.append(str(capacity) + ' (' + str(effective) + ')')
             w_sizes.append(max(len(w_names[len(w_names)-1]), len(w_types[len(w_types)-1]), len(w_capacity[len(w_capacity)-1])) + 3)
         format_template *= len(w_names) + 1
         format_template = format_template.format(loco_str_size, *w_sizes)

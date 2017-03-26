@@ -4,11 +4,11 @@ import json
 bonuses = {
     "diesel": {
         "bonus": 40,
-        "bonus_on": ["cargo", "non_cargo"]
+        "bonus_on": "cargo,non_cargo"
     },
     "electric": {
         "bonus": 100,
-        "bonus_on": ["non_cargo"]
+        "bonus_on": "non_cargo"
     }
 }
 
