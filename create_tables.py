@@ -3,6 +3,14 @@ import db
 db.open()
 cur = db.conn.cursor()
 
+# list of tables
+# wagon_types
+# wagons
+# locomotive_types
+# locomotives
+# train_types
+# trains
+
 # wagon type table
 sql = '''
 create table if not exists wagon_types (

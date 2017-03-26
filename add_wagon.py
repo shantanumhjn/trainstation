@@ -64,4 +64,4 @@ def load_wagons_file(file_name):
 
 if __name__ == '__main__':
     # add_passenger_wagon('Grasshopper 1st', 200, 200)
-    load_wagons_file('wagons1.json')
+    load_wagons_file('data/wagons1.json')

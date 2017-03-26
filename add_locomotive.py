@@ -60,4 +60,4 @@ def load_locomotives_file(file_name):
             add_locomotives_json(js[i])
 
 if __name__ == '__main__':
-    load_locomotives_file('locomotives.json')
+    load_locomotives_file('data/locomotives.json')

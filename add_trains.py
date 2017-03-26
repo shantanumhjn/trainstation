@@ -32,4 +32,4 @@ def load_train_file(file_name):
             add_train_json(entry)
 
 if __name__ == '__main__':
-    load_train_file('trains.json')
+    load_train_file('data/trains.json')
