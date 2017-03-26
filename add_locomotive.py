@@ -1,14 +1,31 @@
 import db
 import json
 
+bonuses = {
+    "diesel": {
+        "bonus": 40,
+        "bonus_on": ["cargo", "non_cargo"]
+    },
+    "electric": {
+        "bonus": 100,
+        "bonus_on": ["non_cargo"]
+    }
+}
+
 def add_locomotive_type(name, l_type, power):
     sql = '''
-        insert into locomotive_types (name, type, power)
-        values (?, ?, ?)
+        insert into locomotive_types (name, type, power, bonus_on, bonus)
+        values (?, ?, ?, ?, ?)
     '''
     db.open()
     cur = db.conn.cursor()
-    cur.execute(sql, (name, l_type, power))
+    bonus_vals = bonuses.get(l_type)
+    bonus = None
+    bonus_on = None
+    if bonus_vals is not None:
+        bonus_on = str(bonus_vals.get('bonus_on'))
+        bonus = str(bonus_vals.get('bonus'))
+    cur.execute(sql, (name, l_type, power, bonus_on, bonus))
     last_id = cur.lastrowid
     db.commit()
     db.close()

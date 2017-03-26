@@ -20,13 +20,15 @@ def load_wagons():
 
 def load_locomotives():
     cur = db.conn.cursor()
-    sql = 'select id, name, type, power from locomotive_types'
+    sql = 'select id, name, type, power, bonus_on, bonus from locomotive_types'
     cur.execute(sql)
     for res in cur.fetchall():
         info = {}
         info['name'] = res[1]
         info['type'] = res[2]
         info['power'] = res[3]
+        info['bonus_on'] = res[4]
+        info['bonus'] = res[5]
         locomotive_metadata[res[0]] = info
 
 def load_metadata():
@@ -38,14 +40,15 @@ def load_metadata():
 def populate_trains_info(trains):
     all_trains = []
     for kee, val in trains.items():
-        loco = locomotive_metadata[kee[1]]
+        loco = {}
+        loco = locomotive_metadata.get(kee[1]).copy()
         loco['id'] = kee[0]
         wagons = []
         wagon_ids = {}
         for w in val:
             wagon_ids[w[1]] = wagon_ids.get(w[1], 0) + 1
         for wid, num in wagon_ids.items():
-            this_wagon = wagon_metadata.get(wid)
+            this_wagon = wagon_metadata[wid].copy()
             this_wagon['count'] = num
             wagons.append(this_wagon)
         # print loco['name'], wagons
@@ -61,12 +64,10 @@ def get_trains():
     trains_dict = {}
     sql = '''
         select l.id, l.locomotive_type_id, w.id, w.wagon_type_id
-          from trains t,
-               wagons w,
+          from wagons w,
                locomotives l
-         where t.locomotive_id = l.id
-           and t.wagon_id = w.id
-         order by locomotive_id, wagon_id
+         where w.locomotive_id = l.id
+         order by l.id, w.id
     '''
     cur.execute(sql)
     all_res = cur.fetchall()
@@ -80,6 +81,7 @@ def get_trains():
     return populate_trains_info(trains_dict)
 
 def print_trains(trains):
+    output = ""
     for train in trains:
         format_template = "{{:<{}}}"
         loco = train['locomotive']
@@ -105,10 +107,11 @@ def print_trains(trains):
             w_sizes.append(max(len(w_names[len(w_names)-1]), len(w_types[len(w_types)-1]), len(w_capacity[len(w_capacity)-1])) + 3)
         format_template *= len(w_names) + 1
         format_template = format_template.format(loco_str_size, *w_sizes)
-        print format_template.format(loco_name, *w_names)
-        print format_template.format(loco['type'], *w_types)
-        print format_template.format(str(w_count) + '/' + str(loco['power']), *w_capacity)
-        print
+
+        output += format_template.format(loco_name, *w_names) + '\n'
+        output += format_template.format(loco['type'], *w_types) + '\n'
+        output += format_template.format(str(w_count) + '/' + str(loco['power']), *w_capacity) + '\n\n'
+    print output
 
 if __name__ == '__main__':
     load_metadata()

@@ -3,7 +3,7 @@ import db
 db.open()
 cur = db.conn.cursor()
 
-tables = 'trains, train_types, wagons, wagon_types, locomotives, locomotive_types'
+tables = 'wagons, wagon_types, locomotives, locomotive_types'
 table_list = tables.split(',')
 
 for table in table_list:

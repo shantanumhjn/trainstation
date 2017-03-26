@@ -1,14 +1,22 @@
 import json
 import db
 
+wagon_super_types = {
+    "xp" : "xp",
+    "passenger": "non_cargo",
+    "mail": "non_cargo"
+    # "cargo": ["rest"]
+}
+
 def add_wagon_type(wagon_type, name, capacity, profit, cargo):
     db.open()
     cur = db.conn.cursor()
     sql = """
-        insert into wagon_types (type, name, capacity, profit, cargo)
-        values (?, ?, ?, ?, ?)
+        insert into wagon_types (super_type, type, name, capacity, profit, cargo)
+        values (?, ?, ?, ?, ?, ?)
         """
-    cur.execute(sql, (wagon_type,name, capacity, profit, cargo))
+    super_type = wagon_super_types.get(wagon_type, 'cargo')
+    cur.execute(sql, (super_type, wagon_type, name, capacity, profit, cargo))
     last_id = cur.lastrowid
     db.commit()
     db.close()

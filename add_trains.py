@@ -8,7 +8,7 @@ def add_train(loco_id, wagon_ids):
     for wids in wagon_ids:
         for wid in wids:
             payload.append((loco_id, wid))
-    sql = 'insert into trains (locomotive_id, wagon_id) values (?, ?)'
+    sql = 'update wagons set locomotive_id = ? where id = ?'
     db.open()
     cur = db.conn.cursor()
     cur.executemany(sql, payload)
