@@ -43,17 +43,17 @@ def get_locomotive_type_id(name):
     db.close()
     return l_id
 
-def add_locomotive(name, l_type = None, power = None):
+def add_locomotive(name, operation, l_type = None, power = None):
     sql = '''
-        insert into locomotives (locomotive_type_id)
-        values (?)
+        insert into locomotives (locomotive_type_id, operation)
+        values (?, ?)
     '''
     l_id = get_locomotive_type_id(name)
     if l_id is None:
         l_id = add_locomotive_type(name, l_type, power)
     db.open()
     cur = db.conn.cursor()
-    cur.execute(sql, (l_id, ))
+    cur.execute(sql, (l_id, operation))
     last_id = cur.lastrowid
     db.commit()
     db.close()
@@ -64,9 +64,10 @@ def add_locomotives_json(js):
     ids = []
     for i in range(count):
         name = js.get('name')
+        operation = js.get('operation')
         l_type = js.get('type')
         power = js.get('power')
-        ids.append(add_locomotive(name, l_type, power))
+        ids.append(add_locomotive(name, operation, l_type, power))
     return ids
 
 def load_locomotives_file(file_name):

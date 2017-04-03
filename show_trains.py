@@ -44,6 +44,7 @@ def populate_trains_info(trains):
         loco = {}
         loco = locomotive_metadata.get(kee[1]).copy()
         loco['id'] = kee[0]
+        loco['operation'] = kee[2]
         wagons = []
         wagon_ids = {}
         for w in val:
@@ -55,8 +56,11 @@ def populate_trains_info(trains):
         # print loco['name'], wagons
         train = {}
         train['locomotive'] = loco
+        wagons = sorted(wagons, key = lambda x: (x['type']))
         train['wagons'] = wagons
+
         all_trains.append(train)
+    all_trains = sorted(all_trains, key = lambda x: (x['locomotive']['operation'], x['locomotive']['id']))
     return all_trains
 
 def get_trains():
@@ -64,7 +68,7 @@ def get_trains():
     cur = db.conn.cursor()
     trains_dict = {}
     sql = '''
-        select l.id, l.locomotive_type_id, w.id, w.wagon_type_id
+        select l.id, l.locomotive_type_id, l.operation, w.id, w.wagon_type_id
           from wagons w,
                locomotives l
          where w.locomotive_id = l.id
@@ -73,8 +77,8 @@ def get_trains():
     cur.execute(sql)
     all_res = cur.fetchall()
     for res in all_res:
-        loco = (res[0], res[1])
-        new_wagon = (res[2], res[3])
+        loco = (res[0], res[1], str(res[2]))
+        new_wagon = (res[3], res[4])
         wagons = trains_dict.get(loco, [])
         wagons.append(new_wagon)
         trains_dict[loco] = wagons
@@ -83,9 +87,13 @@ def get_trains():
 
 def print_trains(trains):
     output = ""
+    last_operation = ''
+    overall_cargo = {}
     for train in trains:
+        total_cargo = {}
         format_template = "{{:<{}}}"
         loco = train['locomotive']
+        loco_operation = str(loco['operation'])
         loco_name = str(loco['name']) + '(' + str(loco.get('id', 0)) + ')'
         loco_bonus_on = str(loco.get('bonus_on', '') or '')
         loco_bonus_on = loco_bonus_on.split(',')
@@ -109,27 +117,100 @@ def print_trains(trains):
             cargo = wagon.get('cargo')
             capacity = wagon.get('capacity')
             profit = wagon.get('profit')
+            payload = 0
+            effective_payload = 0
             if cargo is not None:
-                capa_str = str(cargo)
+                cargo = int(cargo)
+                payload = 1 + cargo/100.0
+                effective_payload = payload
                 if apply_loco_bonus:
-                    capa_str += ' (' + str(int(ceil(cargo*(1+(loco_bonus/100.0))))) + ')'
-                w_capacity.append(capa_str)
+                    effective_payload = payload*(1+(loco_bonus/100.0))
             else:
-                effective = int(ceil(capacity*(1+(profit/100.0))))
+                payload = capacity
+                effective_payload = int(ceil(capacity*(1+(profit/100.0))))
                 if apply_loco_bonus:
-                    effective += int(ceil(effective*(loco_bonus/100.0)))
-                w_capacity.append(str(capacity) + ' (' + str(effective) + ')')
+                    effective_payload += int(ceil(effective_payload*(loco_bonus/100.0)))
+            w_capacity.append(str(payload) + ' (' + str(effective_payload) + ')')
+            total_cargo[w_type] = total_cargo.get(w_type, 0) + (effective_payload * wagon.get('count', 1))
+            temp_storage = overall_cargo.get(loco_operation, {})
+            temp_storage[w_type] = temp_storage.get(w_type, 0) + (effective_payload * wagon.get('count', 1))
+            overall_cargo[loco_operation] = temp_storage
+            # sizes of the strings for each wagon
             w_sizes.append(max(len(w_names[len(w_names)-1]), len(w_types[len(w_types)-1]), len(w_capacity[len(w_capacity)-1])) + 3)
         format_template *= len(w_names) + 1
+        w_sizes = [25] * len(w_sizes)
+        loco_str_size = 35
         format_template = format_template.format(loco_str_size, *w_sizes)
 
+        if loco_operation != last_operation:
+            output += '\n'*2 + loco_operation + ':\n'
+            last_operation = loco_operation
         output += format_template.format(loco_name, *w_names) + '\n'
         output += format_template.format(loco['type'], *w_types) + '\n'
-        output += format_template.format(str(w_count) + '/' + str(loco['power']), *w_capacity) + '\n\n'
+        output += format_template.format(str(w_count) + '/' + str(loco['power']), *w_capacity) + '\n'
+        for kee, vaal in total_cargo.items():
+            output += kee + ':' + str(vaal) + ', '
+        output = output[0:len(output) - 2] + '\n'
+        output += '\n'
     print output
+    for pk, pv in overall_cargo.items():
+        print pk, ':', pv
+
+def save_trains(file_name, trains):
+    for train in trains:
+        train['locomotive'].pop('bonus', None)
+        train['locomotive'].pop('bonus_on', None)
+        train['locomotive'].pop('id', None)
+        for wagon in train['wagons']:
+            wagon.pop('super_type', None)
+    with open('data/' + file_name, 'w') as f:
+        f.write(json.dumps(trains, indent = 2))
+
+def print_wagons(wagons):
+    num_wagons_per_line = 5
+    format_template = "{:<25}"
+    wagons_by_type = {}
+    for wagon in wagons:
+        w_type = str(wagon["type"])
+        this_wagons = wagons_by_type.get(w_type, list())
+        this_wagons.append(wagon)
+        wagons_by_type[w_type] = this_wagons
+
+    for w_type, t_wagons in wagons_by_type.items():
+        wagons_by_type[w_type] = sorted(t_wagons, key = lambda x: x["cargo"], reverse = True)
+
+    for w_type, t_wagons in wagons_by_type.items():
+        print w_type + ":"
+        w_names = []
+        w_cargos = []
+        for wagon in t_wagons:
+            w_names.append(str(wagon["name"]) + " x" + str(wagon["count"]))
+            w_cargos.append(wagon["cargo"])
+        print (format_template*len(t_wagons)).format(*w_names)
+        print (format_template*len(t_wagons)).format(*w_cargos)
+        print
+
+def get_unused_wagons(wagon_type = None):
+    sql = '''
+        select wagon_type_id, count(1)
+          from wagons
+         where locomotive_id is null
+         group by wagon_type_id
+    '''
+    wagons = []
+    db.open()
+    cur = db.conn.cursor()
+    cur.execute(sql)
+    for res in cur.fetchall():
+        wagon = wagon_metadata[res[0]].copy()
+        wagon["count"] = res[1]
+        wagons.append(wagon)
+    db.close()
+    return wagons
 
 if __name__ == '__main__':
     load_metadata()
-    trains = get_trains()
-    # print json.dumps(trains, indent = 2)
-    print_trains(trains)
+    print_wagons(get_unused_wagons())
+    # trains = get_trains()
+    # save_trains('new_trains.json', trains)
+    # print_trains(trains)

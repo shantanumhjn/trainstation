@@ -18,7 +18,6 @@ create table if not exists locomotive_types (
     power       integer,
     bonus_on    text,
     bonus       integer,
-    operation   text,
     constraint locomotive_types_uk unique (name)
 )
 '''
@@ -29,6 +28,7 @@ sql = '''
 create table if not exists locomotives (
     id                  integer primary key,
     locomotive_type_id  integer,
+    operation           text default 'unused',
     constraint locomotives_fk1 foreign key (locomotive_type_id) references locomotive_types (id)
 )
 '''
