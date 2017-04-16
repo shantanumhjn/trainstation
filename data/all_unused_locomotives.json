@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Freedon", 
+    "power": 9, 
+    "type": "steam"
+  }, 
+  {
+    "name": "Shrot", 
+    "power": 8, 
+    "type": "steam"
+  }, 
+  {
+    "name": "NSB CLASS XXI", 
+    "power": 7, 
+    "type": "steam"
+  }, 
+  {
+    "name": "Hiawatha", 
+    "power": 7, 
+    "type": "steam"
+  }, 
+  {
+    "name": "Matt H.Shay", 
+    "power": 7, 
+    "type": "steam"
+  }
+]

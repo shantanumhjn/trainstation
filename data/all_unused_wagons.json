@@ -1,0 +1,298 @@
+[
+  {
+    "count": 3, 
+    "cargo": 10, 
+    "capacity": null, 
+    "name": "Glazier Trailer", 
+    "profit": null, 
+    "type": "glass"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 20, 
+    "capacity": null, 
+    "name": "Fuel Tanker", 
+    "profit": null, 
+    "type": "fuel"
+  }, 
+  {
+    "count": 4, 
+    "cargo": null, 
+    "capacity": 200, 
+    "name": "Grasshopper 1st", 
+    "profit": 200, 
+    "type": "passenger"
+  }, 
+  {
+    "count": 5, 
+    "cargo": 20, 
+    "capacity": null, 
+    "name": "Nail Bag", 
+    "profit": null, 
+    "type": "nails"
+  }, 
+  {
+    "count": 3, 
+    "cargo": 20, 
+    "capacity": null, 
+    "name": "Lumberjack", 
+    "profit": null, 
+    "type": "wood"
+  }, 
+  {
+    "count": 3, 
+    "cargo": 0, 
+    "capacity": null, 
+    "name": "Fuel Carrier", 
+    "profit": null, 
+    "type": "fuel"
+  }, 
+  {
+    "count": 2, 
+    "cargo": 30, 
+    "capacity": null, 
+    "name": "Nail Carrier", 
+    "profit": null, 
+    "type": "nails"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 40, 
+    "capacity": null, 
+    "name": "Gravel Carrier", 
+    "profit": null, 
+    "type": "gravel"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 1050, 
+    "name": "Swift Missouri", 
+    "profit": 0, 
+    "type": "mail"
+  }, 
+  {
+    "count": 2, 
+    "cargo": null, 
+    "capacity": 1200, 
+    "name": "Zeze Leone Mail", 
+    "profit": 30, 
+    "type": "mail"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 1300, 
+    "name": "Ontario Rapid", 
+    "profit": 0, 
+    "type": "mail"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 20, 
+    "capacity": null, 
+    "name": "Glass Storm", 
+    "profit": null, 
+    "type": "glass"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 10, 
+    "capacity": null, 
+    "name": "Oil Bringer", 
+    "profit": null, 
+    "type": "fuel"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 40, 
+    "capacity": null, 
+    "name": "Anvil", 
+    "profit": null, 
+    "type": "steel"
+  }, 
+  {
+    "count": 4, 
+    "cargo": null, 
+    "capacity": 190, 
+    "name": "Class 901P", 
+    "profit": 40, 
+    "type": "passenger"
+  }, 
+  {
+    "count": 5, 
+    "cargo": null, 
+    "capacity": 100, 
+    "name": "Grasshopper 2nd", 
+    "profit": 50, 
+    "type": "passenger"
+  }, 
+  {
+    "count": 7, 
+    "cargo": null, 
+    "capacity": 105, 
+    "name": "Louisville", 
+    "profit": 30, 
+    "type": "passenger"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 95, 
+    "name": "Ultramarine Liner", 
+    "profit": 40, 
+    "type": "passenger"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 70, 
+    "name": "Swift Sprinter", 
+    "profit": 50, 
+    "type": "passenger"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 900, 
+    "name": "Emerald Mail", 
+    "profit": 40, 
+    "type": "mail"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 700, 
+    "name": "Mailissippi", 
+    "profit": 30, 
+    "type": "mail"
+  }, 
+  {
+    "count": 1, 
+    "cargo": null, 
+    "capacity": 600, 
+    "name": "Golden Mailer", 
+    "profit": 50, 
+    "type": "mail"
+  }, 
+  {
+    "count": 3, 
+    "cargo": 300, 
+    "capacity": null, 
+    "name": "Venture Bricks", 
+    "profit": null, 
+    "type": "bricks"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 100, 
+    "capacity": null, 
+    "name": "Chrome Wood", 
+    "profit": null, 
+    "type": "wood"
+  }, 
+  {
+    "count": 6, 
+    "cargo": 90, 
+    "capacity": null, 
+    "name": "Gravel Massive", 
+    "profit": null, 
+    "type": "gravel"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 80, 
+    "capacity": null, 
+    "name": "Chrome Bricks", 
+    "profit": null, 
+    "type": "bricks"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 80, 
+    "capacity": null, 
+    "name": "Thermobrick Carrier", 
+    "profit": null, 
+    "type": "bricks"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 60, 
+    "capacity": null, 
+    "name": "Woody", 
+    "profit": null, 
+    "type": "wood"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 60, 
+    "capacity": null, 
+    "name": "Gravel Mammoth", 
+    "profit": null, 
+    "type": "gravel"
+  }, 
+  {
+    "count": 4, 
+    "cargo": 40, 
+    "capacity": null, 
+    "name": "Chrome Nails", 
+    "profit": null, 
+    "type": "nails"
+  }, 
+  {
+    "count": 2, 
+    "cargo": 40, 
+    "capacity": null, 
+    "name": "Brick Carrier", 
+    "profit": null, 
+    "type": "bricks"
+  }, 
+  {
+    "count": 2, 
+    "cargo": 20, 
+    "capacity": null, 
+    "name": "Steel Carrier", 
+    "profit": null, 
+    "type": "steel"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 20, 
+    "capacity": null, 
+    "name": "Brick Carriage", 
+    "profit": null, 
+    "type": "bricks"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 10, 
+    "capacity": null, 
+    "name": "Steel Transporter", 
+    "profit": null, 
+    "type": "steel"
+  }, 
+  {
+    "count": 2, 
+    "cargo": 10, 
+    "capacity": null, 
+    "name": "Brick Henge", 
+    "profit": null, 
+    "type": "bricks"
+  }, 
+  {
+    "count": 1, 
+    "cargo": 0, 
+    "capacity": null, 
+    "name": "Uranium Cart", 
+    "profit": null, 
+    "type": "u-235"
+  }, 
+  {
+    "count": 3, 
+    "cargo": 0, 
+    "capacity": null, 
+    "name": "Steel Cart", 
+    "profit": null, 
+    "type": "steel"
+  }
+]

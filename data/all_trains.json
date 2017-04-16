@@ -1,0 +1,584 @@
+[
+  {
+    "wagons": [
+      {
+        "count": 2, 
+        "cargo": null, 
+        "capacity": 500, 
+        "name": "General Mail", 
+        "profit": 50, 
+        "type": "mail"
+      }, 
+      {
+        "count": 2, 
+        "cargo": null, 
+        "capacity": 50, 
+        "name": "General Coach", 
+        "profit": 10, 
+        "type": "passenger"
+      }
+    ], 
+    "locomotive": {
+      "name": "Mr. General", 
+      "power": 4, 
+      "operation": "depot", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 750, 
+        "name": "Saxonia Mail", 
+        "profit": 0, 
+        "type": "mail"
+      }, 
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 55, 
+        "name": "Saxonia 1st Class", 
+        "profit": 50, 
+        "type": "passenger"
+      }, 
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 50, 
+        "name": "Saxonia 3rd Class", 
+        "profit": 15, 
+        "type": "passenger"
+      }, 
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 65, 
+        "name": "Saxonia 2nd Class", 
+        "profit": 10, 
+        "type": "passenger"
+      }
+    ], 
+    "locomotive": {
+      "name": "Saxonia", 
+      "power": 4, 
+      "operation": "depot", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 2, 
+        "cargo": null, 
+        "capacity": 80, 
+        "name": "Phoenix 2nd Class", 
+        "profit": 20, 
+        "type": "passenger"
+      }, 
+      {
+        "count": 2, 
+        "cargo": null, 
+        "capacity": 60, 
+        "name": "Phoenix 1st Class", 
+        "profit": 100, 
+        "type": "passenger"
+      }
+    ], 
+    "locomotive": {
+      "name": "Phoenix", 
+      "power": 4, 
+      "operation": "depot", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 1050, 
+        "name": "Swift Missouri", 
+        "profit": 0, 
+        "type": "mail"
+      }, 
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 1200, 
+        "name": "Zeze Leone Mail", 
+        "profit": 30, 
+        "type": "mail"
+      }, 
+      {
+        "count": 2, 
+        "cargo": null, 
+        "capacity": 1300, 
+        "name": "Ontario Rapid", 
+        "profit": 0, 
+        "type": "mail"
+      }, 
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 1300, 
+        "name": "Ontario", 
+        "profit": 25, 
+        "type": "mail"
+      }, 
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 3000, 
+        "name": "DR18 Mail", 
+        "profit": 0, 
+        "type": "mail"
+      }
+    ], 
+    "locomotive": {
+      "name": "PH37 Community", 
+      "power": 6, 
+      "operation": "depot", 
+      "type": "diesel"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": 10, 
+        "capacity": null, 
+        "name": "Oil Bringer", 
+        "profit": null, 
+        "type": "fuel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Glass Storm", 
+        "profit": null, 
+        "type": "glass"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 10, 
+        "capacity": null, 
+        "name": "Glazier Trailer", 
+        "profit": null, 
+        "type": "glass"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Gravel Hopper", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 40, 
+        "capacity": null, 
+        "name": "Anvil", 
+        "profit": null, 
+        "type": "steel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 60, 
+        "capacity": null, 
+        "name": "Golden Smithy", 
+        "profit": null, 
+        "type": "steel"
+      }
+    ], 
+    "locomotive": {
+      "name": "PH37 Community", 
+      "power": 6, 
+      "operation": "depot", 
+      "type": "diesel"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": 50, 
+        "capacity": null, 
+        "name": "Constructor Bricks", 
+        "profit": null, 
+        "type": "bricks"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 50, 
+        "capacity": null, 
+        "name": "Constructor Nails", 
+        "profit": null, 
+        "type": "nails"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 50, 
+        "capacity": null, 
+        "name": "Constructor Steel", 
+        "profit": null, 
+        "type": "steel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 50, 
+        "capacity": null, 
+        "name": "Constructor Wood", 
+        "profit": null, 
+        "type": "wood"
+      }
+    ], 
+    "locomotive": {
+      "name": "Constructor", 
+      "power": 4, 
+      "operation": "depot", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 6, 
+        "cargo": null, 
+        "capacity": 90, 
+        "name": "Gresley LNER", 
+        "profit": 30, 
+        "type": "passenger"
+      }
+    ], 
+    "locomotive": {
+      "name": "Flying Scotsman", 
+      "power": 6, 
+      "operation": "international", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 95, 
+        "name": "Hammerhead Blue", 
+        "profit": 35, 
+        "type": "passenger"
+      }
+    ], 
+    "locomotive": {
+      "name": "OBB 2067", 
+      "power": 5, 
+      "operation": "international", 
+      "type": "diesel"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Fuel Tanker", 
+        "profit": null, 
+        "type": "fuel"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 10, 
+        "capacity": null, 
+        "name": "Glazier Trailer", 
+        "profit": null, 
+        "type": "glass"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Granite", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 70, 
+        "capacity": null, 
+        "name": "Steel Maker", 
+        "profit": null, 
+        "type": "steel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Inox", 
+        "profit": null, 
+        "type": "steel"
+      }
+    ], 
+    "locomotive": {
+      "name": "PH37 Community", 
+      "power": 6, 
+      "operation": "local", 
+      "type": "diesel"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": null, 
+        "capacity": 1550, 
+        "name": "Royal Mail", 
+        "profit": 50, 
+        "type": "mail"
+      }, 
+      {
+        "count": 6, 
+        "cargo": null, 
+        "capacity": 200, 
+        "name": "Grasshopper 1st", 
+        "profit": 200, 
+        "type": "passenger"
+      }
+    ], 
+    "locomotive": {
+      "name": "Silver Ridge", 
+      "power": 7, 
+      "operation": "local", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": 0, 
+        "capacity": null, 
+        "name": "Gravel Cart", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Granite", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Nail Bag", 
+        "profit": null, 
+        "type": "nails"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 70, 
+        "capacity": null, 
+        "name": "Steel Maker", 
+        "profit": null, 
+        "type": "steel"
+      }, 
+      {
+        "count": 3, 
+        "cargo": 30, 
+        "capacity": null, 
+        "name": "Wood Carrier", 
+        "profit": null, 
+        "type": "wood"
+      }
+    ], 
+    "locomotive": {
+      "name": "SR Battle of Britain", 
+      "power": 9, 
+      "operation": "local", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 2, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Chrome Glass", 
+        "profit": null, 
+        "type": "glass"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Granite", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 10, 
+        "capacity": null, 
+        "name": "Pebble Hopper", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Inox", 
+        "profit": null, 
+        "type": "steel"
+      }, 
+      {
+        "count": 3, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Lumberjack", 
+        "profit": null, 
+        "type": "wood"
+      }
+    ], 
+    "locomotive": {
+      "name": "Northern U-4", 
+      "power": 9, 
+      "operation": "local", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 3, 
+        "cargo": 0, 
+        "capacity": null, 
+        "name": "Fuel Carrier", 
+        "profit": null, 
+        "type": "fuel"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 10, 
+        "capacity": null, 
+        "name": "Glazier Trailer", 
+        "profit": null, 
+        "type": "glass"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Granite", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Inox", 
+        "profit": null, 
+        "type": "steel"
+      }
+    ], 
+    "locomotive": {
+      "name": "A1 Peppercorn", 
+      "power": 8, 
+      "operation": "local", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 1, 
+        "cargo": 80, 
+        "capacity": null, 
+        "name": "Granite", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 30, 
+        "capacity": null, 
+        "name": "Nail Carrier", 
+        "profit": null, 
+        "type": "nails"
+      }, 
+      {
+        "count": 2, 
+        "cargo": 70, 
+        "capacity": null, 
+        "name": "Steel Maker", 
+        "profit": null, 
+        "type": "steel"
+      }, 
+      {
+        "count": 3, 
+        "cargo": 30, 
+        "capacity": null, 
+        "name": "Wood Carrier", 
+        "profit": null, 
+        "type": "wood"
+      }
+    ], 
+    "locomotive": {
+      "name": "Silver Ridge", 
+      "power": 7, 
+      "operation": "local", 
+      "type": "steam"
+    }
+  }, 
+  {
+    "wagons": [
+      {
+        "count": 3, 
+        "cargo": 0, 
+        "capacity": null, 
+        "name": "Fuel Carrier", 
+        "profit": null, 
+        "type": "fuel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 40, 
+        "capacity": null, 
+        "name": "Gravel Carrier", 
+        "profit": null, 
+        "type": "gravel"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 20, 
+        "capacity": null, 
+        "name": "Nail Bag", 
+        "profit": null, 
+        "type": "nails"
+      }, 
+      {
+        "count": 1, 
+        "cargo": 30, 
+        "capacity": null, 
+        "name": "Wood Carrier", 
+        "profit": null, 
+        "type": "wood"
+      }
+    ], 
+    "locomotive": {
+      "name": "NS Class 2800", 
+      "power": 6, 
+      "operation": "local", 
+      "type": "diesel"
+    }
+  }
+]

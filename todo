@@ -1,0 +1,10 @@
+april 16, 2017
+1) add code to modify operation of a locomotive
+2) modify existing trains
+
+april 15, 2017
+1) show unused locomotives                              -- done
+2) save all trians to a file                            -- done
+3) save unused wagons to a file                         -- done
+4) save unused locomotives to a file                    -- done
+5) for unused non cargo wagons, show capacity properly  -- done
